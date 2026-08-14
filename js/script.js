@@ -1,24 +1,23 @@
+"use strict";
+
 import { Games } from "./game.js";
+
 new Games();
 
-let nav = document.querySelector(".nav");
-window.onscroll = function(){
-    if(window.pageYOffset > 190)
-        {
-            nav.classList.add("fixed");
-            console.log("ok");
-        }
-        else if(window.pageYOffset < 200)
-        {
-            nav.classList.remove("fixed");
-            nav.classList.add(".nav");
-            console.log('no');
-            
-        }
-}
-let closeIcon = document.querySelector(".iconMenu");
-let listsUL = document.querySelector(".ulLinks ul");
-closeIcon.addEventListener("click",function(){
-    listsUL.classList.toggle("listLinks");
-    nav.classList.toggle("navbar");
-})
+const nav = document.querySelector(".nav");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 180) {
+    nav.classList.add("fixed");
+  } else {
+    nav.classList.remove("fixed");
+  }
+});
+
+const menuButton = document.querySelector(".iconMenu");
+
+const menu = document.querySelector(".ulLinks ul");
+
+menuButton.addEventListener("click", () => {
+  menu.classList.toggle("listLinks");
+});
